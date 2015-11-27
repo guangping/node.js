@@ -55,18 +55,7 @@ dw.connect(function(conn, cb) {
 
 
 var mysql = require('node-mysql');
-var pool  = mysql.createPool({
-    connectionLimit : 10,
-    host            : 'example.org',
-    user            : 'bob',
-    password        : 'secret'
-});
-
-pool.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-    if (err) throw err;
-
-    console.log('The solution is: ', rows[0].solution);
-});
+var pool  = mysql.createPool(config);
 
 
 
