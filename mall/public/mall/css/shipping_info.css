@@ -1,0 +1,114 @@
+body,html{
+	background: #f2f2f2;
+}
+header{
+	width: 100%;
+	height: 48px;
+	background: #fff;
+}
+header div{
+	width: 30%;
+	height: 48px;
+	float: left;
+}
+header .con{
+	width: 40%;
+}
+header .lf a{
+	display: block;
+	float: left;
+	width: 60px;
+	height: 48px;
+	background: url(../img/introduction_back.png) no-repeat 16px center;
+	background-size: 9px 16px;
+}
+header .con{
+	text-align: center;
+}
+header .con h2{
+	display: inline-block;
+	line-height: 48px;
+	width: 80px;
+	font-size: 18px;
+	color: #55BA4B;
+	text-align: center;
+	cursor: pointer;
+}
+section{
+	margin-top: 20px;
+	background: #fff;
+}
+section .info0{
+	margin-left: 16px;
+	border-bottom: 1px solid #f2f2f2;
+}
+section .info0 p{
+	font-size: 16px;
+	line-height: 48px;
+	color: #666666;
+	display: inline-block;
+}
+section .info0 p:nth-child(2){
+	float: right;
+	margin-right: 16px;
+}
+section .info3{
+	margin-left: 16px;
+	border-bottom: 1px solid #f2f2f2;
+}
+section .info3 p{
+	font-size: 16px;
+	line-height: 48px;
+	color: #666666;
+	display: inline-block;
+}
+section .info3 a{
+	width: 160px;
+	font-size: 16px;
+	line-height: 48px;
+	height: 48px;
+	color: #666666;
+	float: right;
+	margin-right: 16px;
+	padding-right: 16px;
+	text-align: right;
+	background: url(../img/introduction_link.png) no-repeat right center;
+	background-size: 8px 14px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	box-sizing: border-box;
+}
+section input{
+	width: 100%;
+	border: 0;
+	color: #666;
+	font-size: 16px;
+	line-height: 20px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-left: 16px;
+	outline: none;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+.Submit_state{
+	margin: 16px;
+	font-size: 16px;
+	color: #fff;
+	background: #D3D3D3;
+	line-height: 40px;
+	height: 40px;
+	text-align: center;
+	border-radius: 6px;
+	/*display: none;*/
+}
+.Submit_state{
+	margin-top: 40px;
+}
+.Submit_state1{
+	display: block;
+}
+.Submit_state2{
+	background: #FF7E45;
+}

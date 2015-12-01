@@ -1,0 +1,137 @@
+body,html{
+	background: #fff;
+}
+header{
+	width: 100%;
+	height: 48px;
+	background: #fff;
+}
+header div{
+	width: 30%;
+	height: 48px;
+	float: left;
+}
+header .con{
+	width: 40%;
+}
+header .lf a{
+	display: block;
+	float: left;
+	width: 60px;
+	height: 48px;
+	background: url(../img/introduction_back.png) no-repeat 16px center;
+	background-size: 9px 16px;
+}
+header .con{
+	text-align: center;
+}
+header .con h2{
+	display: inline-block;
+	line-height: 48px;
+	width: 80px;
+	font-size: 18px;
+	color: #55BA4B;
+	text-align: center;
+	cursor: pointer;
+}
+.box{
+	width: 100%;
+	height: 20px;
+	background: #f2f2f2;
+}
+.pay_erro{
+	width: 100%;
+	overflow: hidden;
+}
+.pay_erro img{
+	width: 30%;
+	margin-left: 35%;
+	margin-top: 20%;
+}
+.pay_erro p{
+	width: 100%;
+	color: #FF7D45;
+	font-size: 18px;
+	line-height: 48px;
+	margin: 20px 0;
+	text-align: center;
+}
+.pay_erro a{
+	display: block;
+	width: 120px;
+	height: 36px;
+	background: #55BB4B;
+	font-size: 14px;
+	line-height: 36px;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+
+/*loading_erro*/
+.loading_erro{
+	width: 100%;
+	overflow: hidden;
+}
+.loading_erro img{
+	width: 30%;
+	margin-left: 35%;
+	margin-top: 20%;
+	margin-bottom: 20px;
+}
+.loading_erro p{
+	width: 100%;
+	color: #666;
+	font-size: 18px;
+	line-height: 48px;
+	text-align: center;
+}
+.loading_erro p:nth-child(3){
+	color: #a0a0a0;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+/*loading_erro2*/
+.loading_erro2{
+	width: 100%;
+	overflow: hidden;
+}
+.loading_erro2 img{
+	width: 30%;
+	margin-left: 35%;
+	margin-top: 20%;
+	margin-bottom: 20px;
+}
+.loading_erro2 p{
+	width: 100%;
+	color: #666;
+	font-size: 18px;
+	line-height: 48px;
+	text-align: center;
+}
+.loading_erro2 .fot{
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+.loading_erro2 .fot a{
+	color: #fff;
+	display: inline-block;
+	line-height: 36px;
+	height: 36px;
+	width: 100px;
+	text-align: center;
+	font-size: 14px;
+}
+.loading_erro2 .fot a:nth-child(1){
+	background: #55BB4B;
+	border-radius: 6px;
+	margin-right: 10px;
+}
+.loading_erro2 .fot a:nth-child(2){
+	background: #FF7E45;
+	border-radius: 6px;
+}

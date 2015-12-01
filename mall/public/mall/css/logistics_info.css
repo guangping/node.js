@@ -1,0 +1,132 @@
+body,html{
+	background: #f2f2f2;
+}
+header{
+	width: 100%;
+	height: 48px;
+	background: #fff;
+}
+header div{
+	width: 30%;
+	height: 48px;
+	float: left;
+}
+header .con{
+	width: 40%;
+}
+header .lf a{
+	display: block;
+	float: left;
+	width: 60px;
+	height: 48px;
+	background: url(../img/introduction_back.png) no-repeat 16px center;
+	background-size: 9px 16px;
+}
+header .con{
+	text-align: center;
+}
+header .con h2{
+	display: inline-block;
+	line-height: 48px;
+	width: 80px;
+	font-size: 18px;
+	color: #55BA4B;
+	text-align: center;
+	cursor: pointer;
+}
+
+.top{
+	width: 100%;
+	background: #fff;
+	margin: 20px 0;
+	overflow: hidden;
+}
+.top h4{
+	font-size: 16px;
+	line-height: 100%;
+	padding-top: 20px;
+	color: #666;
+	padding-left: 16px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+.top p{
+	font-size: 14px;
+	color: #787878;
+	line-height: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 16px;
+	float: left;
+}
+.top p:nth-child(3){
+	padding-right: 16px;
+	float: right;
+}
+section{
+	width: 100%;
+	background: #fff;
+	overflow: hidden;
+}
+section .box0{
+	margin-top: 10px;
+	margin-left: 16px;
+	padding-bottom: 10px;
+	position: relative;
+}
+section .box0 p{
+	font-size: 15px;
+	line-height: 36px;
+	margin-left: 24px;
+	text-align: left;
+	color: #666;
+}
+section .box0 p:last-child{
+	padding-bottom: 10px;
+	border-bottom: 1px solid #f2f2f2;
+}
+section .box0:first-child{
+	margin-top: 20px;
+	padding-top: 0px;
+}
+section div:nth-child(1) p{
+	color: #55BA4B;	
+}
+section .box0 p:nth-child(1){
+	line-height: 100%;
+	padding-bottom: 4px;
+}
+section .box0:before{
+	content: '';
+	width: 11px;
+	height: 100px;
+	background: url(../img/logistics_icons2.png) no-repeat;
+	background-size: 11px 100px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+section .box0:first-child:before{
+	content: '';
+	width: 11px;
+	height: 100px;
+	background: url(../img/logistics_icons.png) no-repeat;
+	background-size: 11px 100px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+section .box0:last-child p:last-child{
+	padding-bottom: 10px;
+	border-bottom: 0;
+}
+section .box0:last-child:before{
+	content: '';
+	width: 11px;
+	height: 100px;
+	background: none;
+	background-size: 11px 100px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}

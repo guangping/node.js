@@ -1,0 +1,175 @@
+body,html{
+	background: #f2f2f2;
+}
+header{
+	width: 100%;
+	height: 48px;
+	background: #fff;
+}
+header div{
+	width: 30%;
+	height: 48px;
+	float: left;
+}
+header .con{
+	width: 40%;
+}
+header .lf a{
+	display: block;
+	float: left;
+	width: 60px;
+	height: 48px;
+	background: url(../img/introduction_back.png) no-repeat 16px center;
+	background-size: 9px 16px;
+}
+header .con{
+	text-align: center;
+}
+header .con h2{
+	display: inline-block;
+	line-height: 48px;
+	width: 80px;
+	font-size: 18px;
+	color: #55BA4B;
+	text-align: center;
+	cursor: pointer;
+}
+.info1{
+	width: 100%;
+	overflow: hidden;
+	margin: 20px 0;
+	background: #fff;
+}
+.info1 .lf{
+	margin-left: 16px;
+	padding-left: 18px;
+	float: left;
+	width: 64%;
+	background: url(../img/address_icons1.png) no-repeat left 17px;
+	background-size: 12px 16px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+.info1 .lf p{
+	font-size: 16px;
+	color: #333;
+	line-height: 28px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.info1 .lf p:nth-child(2){
+	color: #787878;
+}
+.info1 .rg{
+	width: 26%;
+	float: right;
+	height: 80px;
+	margin-right: 16px;
+	background: url(../img/introduction_link.png) no-repeat right center;
+	background-size: 8px 14px;
+}
+.info2{
+	width: 100%;
+	background: #fff;
+	margin-bottom: 20px;
+	overflow: hidden;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.info2 p{
+	font-size: 16px;
+	line-height: 28px;
+	text-align: left;
+	margin-left: 16px;
+}
+.info2 p:nth-child(1){
+	color: #333;
+}
+.info2 p:nth-child(2){
+	color: #777777;
+	border-bottom: 1px solid #f2f2f2;
+	padding-bottom: 8px;
+}
+.info2 p:nth-child(2) span{
+	color: #FF7D45;
+}
+.info2 p:nth-child(3),.info2 p:nth-child(4){
+	display: inline-block;
+	float: left;
+	margin-top: 8px;
+}
+.info2 p:nth-child(4){
+	float: right;
+	padding-right: 16px;
+}
+.info3{
+	width: 100%;
+	background: #fff;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+.info3 p{
+	font-size: 16px;
+	line-height: 48px;
+	height: 48px;
+	display: inline-block;
+	padding-left: 16px;
+	float: left;
+}
+.info3 p:nth-child(2){
+	float: right;
+	padding-right: 16px;
+}
+.info4 p:nth-child(2){
+	color: #FF7D45;
+}
+.pay{
+	width: 100%;
+	background: #fff;
+	margin-bottom: 20px;
+	overflow: hidden;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.pay p{
+	font-size: 16px;
+	line-height: 48px;
+	margin-left: 16px;
+	margin-right: 16px;
+	padding-left: 30px;
+	color: #333;
+	background: url(../img/pay_icons1.png) no-repeat left center;
+	background-size: 24px 24px;
+	position: relative;
+}
+.pay p.wx{
+	background: url(../img/pay_icons2.png) no-repeat left center;
+	background-size: 24px 24px;
+}
+.pay p:before{
+	content: '';
+	width: 16px;
+	height: 16px;
+	background: url(../img/pay_icons3.png) no-repeat;
+	background-size: 16px 16px;
+	position: absolute;
+	right: 0px;
+	top: 16px;
+}
+.Submit_state{
+	margin: 16px;
+	font-size: 16px;
+	color: #fff;
+	background: #FF7E45;
+	line-height: 40px;
+	height: 40px;
+	text-align: center;
+	border-radius: 6px;
+	cursor: pointer;
+}
+.Submit_state{
+	margin-top: 40px;
+}

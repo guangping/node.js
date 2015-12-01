@@ -1,0 +1,117 @@
+body,html{
+	background: #f2f2f2;
+}
+header{
+	width: 100%;
+	height: 48px;
+	background: #fff;
+}
+header div{
+	width: 30%;
+	height: 48px;
+	float: left;
+}
+header .con{
+	width: 40%;
+}
+header .lf a{
+	display: block;
+	float: left;
+	width: 60px;
+	height: 48px;
+	background: url(../img/introduction_back.png) no-repeat 16px center;
+	background-size: 9px 16px;
+}
+header .con{
+	text-align: center;
+}
+header .con h2{
+	display: inline-block;
+	line-height: 48px;
+	width: 80px;
+	font-size: 18px;
+	color: #55BA4B;
+	text-align: center;
+	cursor: pointer;
+}
+section{
+	width: 100%;
+	overflow: hidden;
+}
+section img{
+	width: 30%;
+	margin: 20px 35%;
+	margin-top: 30px;
+}
+section p{
+	text-align: center;
+	width: 100%;
+	font-size: 18px;
+	color: #FF7D45;
+	margin-bottom: 20px;
+}
+.con{
+	width: 100%;
+	background: #fff;
+	overflow: hidden;
+}
+.con h3{
+	font-size: 14px;
+	color: #333;
+	line-height: 48px;
+	padding-left: 16px;
+	border-bottom: 1px solid #f2f2f2;
+}
+.con .box1{
+	margin-left: 16px;
+	overflow: hidden;
+	border-bottom: 1px solid #f2f2f2;
+}
+.con .box1 p{
+	font-size: 14px;
+	line-height: 48px;
+}
+.con .box1 p:nth-child(1){
+	float: left;
+	color: #666;
+}
+.con .box1 p:nth-child(2){
+	float: right;
+	padding-right: 16px;
+	color: #FF7D45;
+}
+
+.con .box2{
+	margin-left: 16px;
+	overflow: hidden;
+	border-bottom: 1px solid #f2f2f2;
+}
+.con .box2 p{
+	font-size: 14px;
+	line-height: 48px;
+}
+.con .box2 p:nth-child(1){
+	float: left;
+	color: #666;
+}
+.con .box2 p:nth-child(2){
+	float: right;
+	padding-right: 16px;
+	color: #333;
+}
+.con .box3{
+	border-bottom: none;
+}
+
+.Submit_state{
+	margin: 16px;
+	margin-top: 30px;
+	font-size: 16px;
+	color: #fff;
+	background: #FF7E45;
+	line-height: 40px;
+	height: 40px;
+	text-align: center;
+	border-radius: 6px;
+	cursor: pointer;
+}
