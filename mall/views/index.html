@@ -2,16 +2,220 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
+    <title>快送积分商城</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="0">
+    <link rel="stylesheet" type="text/css" href="/mall/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/mall/css/global.css">
+    <link rel="stylesheet" type="text/css" href="/mall/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/mall/css/index.css">
 </head>
 <body>
-<h1 style="color: chocolate;">success!</h1>
+<!-- <h2>商家名称</h2> -->
+<div class="top2">
+    <div><p></p></div>
+    <div><a href="http://192.168.0.70/address.html">请输入您的收货地址</a></div>
+    <div><a href="http://192.168.0.70/record.html"></a></div>
+</div>
+<div id="wrapper">
+    <div id="scroller">
+        <div id="pullDown">
+            <span class="pullDownIcon"></span>
+            <span class="pullDownLabel">下拉刷新...</span>
+        </div>
+        <div class="cont" id="cont">
+            <section>
+                <div class="lf">
+                    <a href="http://192.168.0.70/introduction.html">
+                        <img src="/public/mall/img/index_pic1.png" alt="">
 
-<h2>
-    {{city}}
-</h2>
+                        <p>泰国香水椰青</p>
+
+                        <p><span>￥28.8</span> / 个</p>
+
+                        <p>￥38.8</p>
+                    </a>
+                </div>
+                <div class="rg">
+                    <a href="javascript:;">立即购买</a>
+                </div>
+            </section>
+
+            <div class="no_goods">
+                <img src="img/index_no_goods.png" alt="">
+
+                <p>该地区暂时缺货或不在配送区域</p>
+                <a href="javascript:;">重新输入</a>
+            </div>
+        </div>
+        <div id="pullUp">
+            <span class="pullUpIcon"></span>
+            <span class="pullUpLabel">上拉加载更多...</span>
+        </div>
+    </div>
+</div>
+<footer></footer>
+<!-- 登陆弹层 -->
+<div class="login">
+    <div class="box">
+        <div class="close"></div>
+        <div class="cb"></div>
+        <form action="">
+            <input id="phone" type="number" placeholder="手机号">
+            <input id="btnSendCode" class="yzma0" type="button" value="验证码"/>
+            <input class="yzm" type="number" placeholder="验证码">
+            <input class="sure" type="submit" value="确定">
+            <span class="erro">验证码错误</span>
+        </form>
+    </div>
+</div>
+<!-- 提示地址弹层 -->
+<div class="prompt">
+    <a href="http://192.168.0.70/address.html">
+        <img src="img/index_prompt1.png" alt="">
+    </a>
+
+    <p class='prompt_close'><img src="/mall/img/index_prompt2.png" alt=""></p>
+</div>
 </body>
 </html>
+<script type="text/javascript" src="/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/mall/js/iscroll.js"></script>
+<script type="text/javascript">
+    var myScroll,
+            pullDownEl, pullDownOffset,
+            pullUpEl, pullUpOffset,
+            generatedCount = 0;
 
+    /* 下拉刷新 （自定义实现此方法）
+     * myScroll.refresh();		// 数据加载完成后，调用界面更新方法
+     */
 
+    /* 滚动翻页 （自定义实现此方法）
+     * myScroll.refresh();	 // 数据加载完成后，调用界面更新方法
+     */
+    function pullUpAction() {
+        setTimeout(function () {   // <-- Simulate network congestion, remove setTimeout from production!
+            var el, li, i;
+            el = document.getElementById('cont');
 
+            for (i = 0; i < 3; i++) {
+                li = document.createElement('li');
+                li.innerText = 'Generated row ' + (++generatedCount);
+                el.appendChild(li, el.childNodes[0]);
+            }
+
+            myScroll.refresh();	  // 数据加载完成后(即:ajax完成)，调用界面更新方法 Remember to refresh when contents are loaded (ie: on ajax completion)
+        }, 1000);   // <-- Simulate network congestion, remove setTimeout from production!
+    }
+
+    /* 初始化iScroll控件
+     */
+    function loaded() {
+        pullDownEl = document.getElementById('pullDown');
+        pullDownOffset = pullDownEl.offsetHeight;
+        pullUpEl = document.getElementById('pullUp');
+        pullUpOffset = pullUpEl.offsetHeight;
+
+        myScroll = new iScroll('wrapper', {
+            scrollbarClass: 'myScrollbar', /* 重要样式 */
+            useTransition: false, /* 此属性不知用意，本人从true改为false */
+            topOffset: pullDownOffset,
+            onRefresh: function () {
+                if (pullUpEl.className.match('loading')) {
+                    pullUpEl.className = '';
+                    pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+                }
+            },
+            onScrollMove: function () {
+                if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+                    pullUpEl.className = 'flip';
+                    pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
+                    this.maxScrollY = this.maxScrollY;
+                } else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+                    pullUpEl.className = '';
+                    pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+                    this.maxScrollY = pullUpOffset;
+                }
+            },
+            onScrollEnd: function () {
+                if (pullUpEl.className.match('flip')) {
+                    pullUpEl.className = 'loading';
+                    pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';
+                    pullUpAction();	// Execute custom function (ajax call?)
+                }
+            }
+        });
+
+        setTimeout(function () {
+            document.getElementById('wrapper').style.left = '0';
+        }, 800);
+    }
+
+    //初始化绑定iScroll控件
+    document.addEventListener('touchmove', function (e) {
+        e.preventDefault();
+    }, false);
+    document.addEventListener('DOMContentLoaded', loaded, false);
+</script>
+<script type="text/javascript">
+    $(function () {
+        var IntervalObj;
+        var count = 60;
+        var curCound;
+        var code = '';
+        var codeLength = 4;
+        $("#btnSendCode").on("touchend", function () {
+            curCound = count;
+            var phone = $("#phone").val();
+            if (phone.length == 11) {
+                $('#btnSendCode').attr('disabled', 'true');
+                $('#btnSendCode').val(curCound + ' 秒');
+                IntervalObj = window.setInterval(SetRemainTime, 1000);
+            }
+        });
+
+        function SetRemainTime() {
+            if (curCound == 0) {
+                window.clearInterval(IntervalObj);
+                $('#btnSendCode').removeAttr("disabled");
+                $('#btnSendCode').val('重新发送');
+                code = '';
+            } else {
+                curCound--;
+                $('#btnSendCode').val(curCound + ' 秒')
+            }
+        }
+
+        $("#phone").on('input', function () {
+            var phone = $("#phone").val();
+            if (phone.length == 11) {
+                $(".yzma0").css("color", "#FF7D45");
+            } else {
+                $(".yzma0").css("color", "#9F9F9F");
+            }
+        });
+        $('.login .box .close').on("touchend", function () {
+            $('.login').hide();
+            return false;
+        });
+        $('.prompt .prompt_close').on("touchend", function () {
+            $(".prompt").hide();
+            return false;
+        })
+        var hg = parseInt($(window).height()) - 108;
+        var hg2 = $('.cont').outerHeight(true);
+        if (hg2 <= hg) {
+            $('footer').addClass('cur');
+        } else {
+            $('footer').removeClass('cur');
+        }
+
+        $(".rg a").on("touchend", function () {
+            $(this).parents(".cont").siblings(".login").show();
+        });
+    })
+</script>
