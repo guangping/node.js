@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/mall/css/global.css">
     <link rel="stylesheet" type="text/css" href="/mall/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/mall/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/loading/jquery.loadmask.css">
 </head>
 <body>
 <!-- <h2>商家名称</h2> -->
@@ -27,25 +28,8 @@
             <span class="pullDownLabel">下拉刷新...</span>
         </div>
         <div class="cont" id="cont">
-            <section>
-                <div class="lf">
-                    <a href="http://192.168.0.70/introduction.html">
-                        <img src="/public/mall/img/index_pic1.png" alt="">
-
-                        <p>泰国香水椰青</p>
-
-                        <p><span>￥28.8</span> / 个</p>
-
-                        <p>￥38.8</p>
-                    </a>
-                </div>
-                <div class="rg">
-                    <a href="javascript:;">立即购买</a>
-                </div>
-            </section>
-
             <div class="no_goods">
-                <img src="img/index_no_goods.png" alt="">
+                <img src="/mall/img/index_no_goods.png" alt="">
 
                 <p>该地区暂时缺货或不在配送区域</p>
                 <a href="javascript:;">重新输入</a>
@@ -75,7 +59,7 @@
 <!-- 提示地址弹层 -->
 <div class="prompt">
     <a href="http://192.168.0.70/address.html">
-        <img src="img/index_prompt1.png" alt="">
+        <img src="/mall/img/index_prompt1.png" alt="">
     </a>
 
     <p class='prompt_close'><img src="/mall/img/index_prompt2.png" alt=""></p>
@@ -83,7 +67,75 @@
 </body>
 </html>
 <script type="text/javascript" src="/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/common/common.js"></script>
+<script type="text/javascript" src="/common/common.http.loading.js"></script>
+<script type="text/javascript" src="/loading/jquery.loadmask.min.js"></script>
 <script type="text/javascript" src="/mall/js/iscroll.js"></script>
+<script type="text/javascript">
+    window.page = 0;
+    var ProductService = ProductService || {};
+    ProductService = {
+        init: function (page) {
+            var me = this;
+            var params = {};
+            params.address = ServiceUtils.getAddress();
+            params.page = page || 0;
+            params.size = 4;
+            //加载商品数据
+            Service.execute('/search', params, function (cb) {
+                if (cb.code == 0) {
+                    var data = cb.result;
+                    if (data.length == 0) {
+                        $('#pullUp').hide();
+                        return false;
+                    }
+
+                    me.showProduct(data);
+                } else {
+                    var children = $('#cont').children('section').length;
+                    if (children == 0) {
+                        $('.no_goods').show();
+                        $('#pullUp').hide();
+                    }
+                }
+            })
+        },
+        showProduct: function (data) {
+            var me = this;
+            var html = '';
+            $.each(data, function (index, val) {
+                html += '<section>';
+                html += '<div class="lf">';
+                html += '<a data-id="' + val.id + '" href="javascript:void(0);">';
+                html += '<img width="360"  src="' + me.getBanners(val.banners || '') + '" alt="">';
+                html += '<p>' + val.title + '</p>';
+                html += '<p><span>￥' + val.price + '</span> / ' + (val.unit || '') + '</p>';
+                if ((val.discount || '') != '') {
+                    html += '<p>￥' + val.discount + '</p>';
+                }
+                html += '</a>';
+                html += '</div>';
+                html += ' <div class="rg">';
+                html += '<a data-id="' + val.id + '" href="javascript:void(0);">立即购买</a>';
+                html += ' </div>';
+                html += ' </section>';
+            })
+            $('.cont').append(html);
+        },
+        getBanners: function (data) {
+            if (data != '' && data.length > 0) {
+                return data[0].url;
+            }
+            return '';
+        }
+    }
+</script>
+<script type="text/javascript">
+    $(function(){
+        ProductService.init();
+    })
+</script>
+
 <script type="text/javascript">
     var myScroll,
             pullDownEl, pullDownOffset,
