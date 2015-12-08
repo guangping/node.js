@@ -12,10 +12,10 @@
     <link rel="stylesheet" type="text/css" href="/mall/css/global.css">
     <link rel="stylesheet" type="text/css" href="/mall/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/mall/css/index.css">
-    <link rel="stylesheet" type="text/css" href="/loading/jquery.loadmask.css">
+    <link rel="stylesheet" type="text/css" href="/mall/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/mall/loading/jquery.loadmask.css">
 </head>
 <body>
-<!-- <h2>商家名称</h2> -->
 <div class="top2">
     <div><p></p></div>
     <div><a href="http://192.168.0.70/address.html">请输入您的收货地址</a></div>
@@ -82,14 +82,18 @@
             params.page = page || 0;
             params.size = 4;
             //加载商品数据
-            Service.execute('/search', params, function (cb) {
+            Service.execute('{{ctx}}/search?_' + new Date().getTime(), params, function (cb) {
                 if (cb.code == 0) {
                     var data = cb.result;
                     if (data.length == 0) {
-                        $('#pullUp').hide();
+                        var children = $('#cont').children('section').length;
+                        if (children == 0) {
+                            $('.no_goods').show();
+                            $('#pullUp').hide();
+                        }
                         return false;
                     }
-
+                    ++window.page;
                     me.showProduct(data);
                 } else {
                     var children = $('#cont').children('section').length;
@@ -131,7 +135,7 @@
     }
 </script>
 <script type="text/javascript">
-    $(function(){
+    $(function () {
         ProductService.init();
     })
 </script>
@@ -154,11 +158,7 @@
             var el, li, i;
             el = document.getElementById('cont');
 
-            for (i = 0; i < 3; i++) {
-                li = document.createElement('li');
-                li.innerText = 'Generated row ' + (++generatedCount);
-                el.appendChild(li, el.childNodes[0]);
-            }
+            ProductService.init(window.page);
 
             myScroll.refresh();	  // 数据加载完成后(即:ajax完成)，调用界面更新方法 Remember to refresh when contents are loaded (ie: on ajax completion)
         }, 1000);   // <-- Simulate network congestion, remove setTimeout from production!
