@@ -33,16 +33,17 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
 
-app.use(function (req, res, next) {
+/*app.use(function (req, res, next) {
     var url = req.originalUrl;
-    if (url != "/login" && (req.session.user || '')!='') {
+    var user=req.session[user] || '';
+    if (url != "/login" && user!='') {
         console.log('login......')
         //return res.redirect("/login");
     }
     next();
-});
+});*/
 
-app.use('/:customerCode', routes);
+app.use('/', routes);
 app.use('/users', users);
 app.use('/order', orders);
 app.use('/:customerCode/search', search);
@@ -51,8 +52,7 @@ app.use('/:customerCode/search', search);
 app.use('/users', users);
 app.use('/order', orders);
 app.use('/search', search);
-app.use('/sr', sr);
-app.use('/mongo', mongo);*/
+app.use('/sr', sr);*/
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
